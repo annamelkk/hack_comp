@@ -11,6 +11,18 @@
 // R10: constant 16
 // R11: temp for swap
 
+// validating y
+@R0
+D=M
+@INVALD
+D;JLT // y < 0
+@256
+D=D-A
+@INVALID
+D;JGE // y>=256
+
+
+
 // stroing 16 for later
 @16
 D=A
@@ -139,8 +151,46 @@ D=A
 M=M+D // address of end word SCREEN + 32y + x/16
 
 
-
+// we found all needed quantities now it is time to draw the functions, below are the cases we need to check
 
 // check if x1 and x2 are in the same word
 // partial words
 // multiple lines (will be combination of filling full words and and the partials)
+
+
+// calculating between the start and end
+@R5
+D=M
+@R4
+D=D-M // D = end - start
+
+@CASE_SINGLE_WORD
+D;JEQ
+
+@1
+D=D-A
+@CASE_TWO_WORDS
+D;JEQ // if D-1=0 then two adjacent words
+
+// else 3 words
+@CASE_MULTIPLE_WORDS
+0;JMP
+
+
+(CASE_SIGNLE_WORDS)
+	// the code
+@END_DRAW
+0;JMP
+
+(CASE_TWO_WORDS)
+	// the code
+@END_DRAW
+0;JMP
+
+(CASE_MULTIPLE_WORDS)
+	// the code
+@END_DRAW
+0;JMP
+
+(END_DRAW)
+
