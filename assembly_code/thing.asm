@@ -1,6 +1,6 @@
 // R0: y
-// R1: x1 → becomes x1 mod 16 (start_bit)
-// R2: x2 → becomes x2 mod 16 (end_bit)
+// R1: x1 -> becomes x1 mod 16 (start_bit)
+// R2: x2 -> becomes x2 mod 16 (end_bit)
 // R3: color
 // R4: start_word_address
 // R5: end_word_address
@@ -10,7 +10,7 @@
 // R9: x2 / 16 (quotient)
 // R10: constant 16
 // R11: temp for swap
-// R12:
+// R12: another temp vlaue we will need while building masks
 // R13-R28 powers of 2 (2^0 through 2^15) 
 
 
@@ -215,7 +215,9 @@ D;JEQ	// if D-1=0 then two adjacent words
 0;JMP
 
 
-(CASE_SINGLE_WORDS)
+// checked, now functions
+
+(CASE_SINGLE_WORD)
 	// the code
 @END_DRAW
 0;JMP
