@@ -38,11 +38,10 @@ $$\text{bit} = x \  \text{mod}  \ 16$$
 | `R3`     | color (1 = white, 0 = black)          |
 | `R4`     | start word address                    |
 | `R5`     | end word address                      |
-| `R6`     | current address (loop counter)        |
+| `R6`     | loop counter                          |
 | `R7`     | temporary register (bit mask)         |
-| `R8`     | x1 / 16                               |
-| `R9`     | x2 / 16                               |
-| `R10`    | constant 16                           |
+
+
 
 ---
 
